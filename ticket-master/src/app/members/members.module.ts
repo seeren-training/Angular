@@ -13,7 +13,7 @@ import { MemberUpdateComponent } from './member-update/member-update.component';
     MemberComponent,
     MemberListComponent,
     MemberCreateComponent,
-    MemberUpdateComponent
+    MemberUpdateComponent,
   ],
   imports: [
     CommonModule,
