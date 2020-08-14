@@ -1,1 +1,17 @@
-<p>member works!</p>
+<mat-card fxLayout="row wrap" fxFlex="90" fxFlexOffset="5" fxFlex.gt-md="60" fxFlexOffset.gt-sm="20">
+    <mat-card-header fxFlex="100">
+        <div mat-card-avatar class="member"></div>
+        <mat-card-title>{{member.firstName}}</mat-card-title>
+        <mat-card-subtitle>{{member.lastName}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content fxFlex="100">
+        <p>
+            {{member.firstName}} {{member.lastName}} is a member with a
+            <strong>{{member.role}}</strong>
+            role.
+        </p>
+    </mat-card-content>
+    <mat-card-actions fxFlex="100">
+        <button mat-raised-button color="accent" (click)="onDelete()">Delete</button>
+    </mat-card-actions>
+</mat-card>

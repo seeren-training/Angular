@@ -1,1 +1,19 @@
-<p>member-list works!</p>
+<section fxLayout="row wrap" fxFlex="90" fxFlexOffset="5" fxFlex.gt-md="60" fxFlexOffset.gt-sm="20">
+    <div class="mat-display-2" fxFlex="100">
+        <br />
+        {{!memberList.length ? 'There is no Member' : 'List of Members'}}
+    </div>
+    <mat-list fxFlex="100">
+        <div *ngFor="let member of memberList; let i = index" [routerLink]="[member.id]">
+            <mat-list-item [class.accent]="i % 2">
+                <mat-chip-list>
+                    <mat-chip color="accent" selected> {{ member.role }}</mat-chip>
+                </mat-chip-list>
+                <span class="mat-display-1">
+                    {{ member.firstName }} {{ member.lastName }}
+                </span>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </div>
+    </mat-list>
+</section>

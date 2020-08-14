@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { MemberListService } from 'src/app/shared/services/member-list.service';
+import { Member } from 'src/app/shared/models/member.model';
+
 
 @Component({
   selector: 'app-member-list',
   templateUrl: './member-list.component.html',
   styleUrls: ['./member-list.component.scss']
 })
-export class MemberListComponent implements OnInit {
+export class MemberListComponent {
 
-  constructor() { }
+  public memberList: Member[] = [];
 
-  ngOnInit(): void {
+  constructor(private memberListService: MemberListService) {
+    this.memberList = this.memberListService.get();
   }
 
 }
