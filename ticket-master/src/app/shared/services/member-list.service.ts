@@ -23,7 +23,10 @@ export class MemberListService {
   }
 
   public delete(member: Member): Member {
-    this.memberList.splice(this.memberList.indexOf(member), 1);
+    this.memberList.splice(
+      this.memberList.indexOf(member),
+      1
+    );
     return member;
   }
 

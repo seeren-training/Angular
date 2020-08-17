@@ -1,9 +1,49 @@
-<section fxLayout="row" fxFlex="90" fxFlexOffset="5" fxFlex.gt-md="70" fxFlexOffset.gt-sm="15">
-    <span class="mat-display-2">
+<section fxLayout="row wrap" fxFlex="90" fxFlexOffset="5" fxFlex.gt-md="70" fxFlexOffset.gt-sm="15">
+    <span class="mat-display-2" fxFlex="100">
         <br />
         New Member
     </span>
+
+
+
+    <form (ngSubmit)="create()" [formGroup]="memberForm" fxLayout="row wrap" fxFlex="100" fxFlex.gt-sm="50">
+        <mat-form-field fxFlex="100">
+            <mat-label>FirstName</mat-label>
+            <input matInput placeholder="FirstName" formControlName="firstName">
+            <mat-error *ngIf="memberForm.controls.firstName.hasError('required')">
+                FirstName is required
+            </mat-error>
+            <mat-error *ngIf="memberForm.controls.firstName.hasError('minlength')">
+                Minimum 3 characters
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+            <mat-label>LastName</mat-label>
+            <input matInput placeholder="LastName" formControlName="lastName">
+            <mat-error *ngIf="memberForm.controls.lastName.hasError('required')">
+                LastName is required
+            </mat-error>
+            <mat-error *ngIf="memberForm.controls.lastName.hasError('minlength')">
+                Minimum 3 characters
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+                <mat-option *ngFor="let role of [
+              'tester',
+              'front',
+              'back'
+              ]" [value]="role"> {{role}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="memberForm.controls.lastName.hasError('required')">
+                Role is required
+            </mat-error>
+        </mat-form-field>
+        <button class="bottom right" mat-fab color="accent">
+            <mat-icon>add</mat-icon>
+        </button>
+    </form>
+
+
 </section>
-<button (click)="create()" class="bottom right" mat-fab color="accent">
-    <mat-icon>add</mat-icon>
-</button>
