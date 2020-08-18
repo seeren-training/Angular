@@ -264,7 +264,7 @@ class MemberCreateComponent {
     create() {
         if (this.memberForm.valid) {
             this.memberListService.post({
-                id: this.memberListService.memberList.length + 1,
+                id: this.memberListService.lastId(),
                 firstName: this.memberForm.controls.firstName.value,
                 lastName: this.memberForm.controls.lastName.value,
                 role: this.memberForm.controls.role.value
@@ -893,6 +893,11 @@ class MemberListService {
     }
     find(id) {
         return this.memberList.find(member => id === member.id);
+    }
+    lastId() {
+        let id = 0;
+        this.memberList.forEach(member => id = id < member.id ? member.id : id);
+        return id;
     }
     get() {
         return this.http.get(_environments_jsonbin__WEBPACK_IMPORTED_MODULE_3__["jsonbin"].bins.members, {

@@ -37,7 +37,7 @@ export class MemberCreateComponent implements OnInit {
   public create(): void {
     if (this.memberForm.valid) {
       this.memberListService.post({
-        id: this.memberListService.memberList.length + 1,
+        id: this.memberListService.lastId(),
         firstName: this.memberForm.controls.firstName.value,
         lastName: this.memberForm.controls.lastName.value,
         role: this.memberForm.controls.role.value

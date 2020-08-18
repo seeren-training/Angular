@@ -20,6 +20,12 @@ export class MemberListService {
     return this.memberList.find(member => id === member.id)
   }
 
+  public lastId(): number {
+    let id: number = 0;
+    this.memberList.forEach(member => id = id < member.id ? member.id : id)
+    return id;
+  }
+
   public get(): Observable<Member[]> {
     return this.http.get<Member[]>(jsonbin.bins.members, {
       headers: new HttpHeaders(jsonbin.headers)
