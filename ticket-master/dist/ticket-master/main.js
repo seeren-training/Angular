@@ -264,7 +264,7 @@ class MemberCreateComponent {
     create() {
         if (this.memberForm.valid) {
             this.memberListService.post({
-                id: this.memberListService.lastId(),
+                id: this.memberListService.lastId() + 1,
                 firstName: this.memberForm.controls.firstName.value,
                 lastName: this.memberForm.controls.lastName.value,
                 role: this.memberForm.controls.role.value
