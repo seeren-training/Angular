@@ -76,6 +76,23 @@ this.http.get<MyModel>(url, options).subscribe(
 
 Une souscription attend en argument premier un callback pour le succès et fourni le corps de la réponse. En argument second un callback en cas d'erreur typé à [HttpErrorResponse](https://angular.io/api/common/http/HttpErrorResponse).
 
+### 🏷️ **[Pipe](https://angular.io/guide/rx-library#operators)**
+
+Utile pour exécuter des instructions avant que les fonctions passées à subscribe ne soient invoquées, cette méthode prend en argument des opérateurs:
+
+L'opérateur tap par exemple est utile pour exécuter des instructions sans modifier la donnée passée à la subscription.
+
+```ts
+this.http.get(url).pipe(
+  tap(data) => {
+    console.log("Je suis dans tap");
+  }
+);
+
+```
+
+D'autres opérateurs sont disponibles comme map, filter, catchError...
+
 ___
 
 👨🏻‍💻 Manipulation

@@ -1,7 +1,10 @@
 mat-card {
     margin: 3em 0;
 }
-
+mat-progress-bar {
+    position: absolute;
+    width: 100%;
+}
 .member {
     background-image: url("../../../assets/images/member.png");
     background-size: cover;

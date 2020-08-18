@@ -11,10 +11,13 @@ import { Member } from 'src/app/shared/models/member.model';
 })
 export class MemberListComponent {
 
-  public memberList: Member[] = [];
+  public memberList: Member[];
 
   constructor(private memberListService: MemberListService) {
-    this.memberList = this.memberListService.get();
+    this.memberListService.get().subscribe(
+      (memberList: Member[]) => this.memberList = memberList,
+      (error) => console.error("Error", error)
+    );
   }
 
 }

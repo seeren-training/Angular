@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
+import { jsonbin } from './../../../environments/jsonbin';
 import { Member } from '../models/member.model';
 
 
@@ -8,26 +12,34 @@ import { Member } from '../models/member.model';
 })
 export class MemberListService {
 
-  private memberList: Member[] = [];
+  public memberList: Member[] = [];
 
-  public post(member: Member): number {
-    return this.memberList.push(member);
-  }
+  constructor(private http: HttpClient) { }
 
-  public get(): Member[] {
-    return this.memberList;
-  }
-
-  public getById(id: number): Member | null {
+  public find(id: number): Member | null {
     return this.memberList.find(member => id === member.id)
   }
 
-  public delete(member: Member): Member {
-    this.memberList.splice(
-      this.memberList.indexOf(member),
-      1
-    );
-    return member;
+  public get(): Observable<Member[]> {
+    return this.http.get<Member[]>(jsonbin.bins.members, {
+      headers: new HttpHeaders(jsonbin.headers)
+    }).pipe(tap(memberList => this.memberList = memberList));
+  }
+
+  public post(member: Member): Observable<any> {
+    this.memberList.push(member);
+    return this.put();
+  }
+
+  public delete(member: Member): Observable<any> {
+    this.memberList.splice(this.memberList.indexOf(member), 1);
+    return this.put();
+  }
+
+  public put(): Observable<any> {
+    return this.http.put(jsonbin.bins.members, this.memberList, {
+      headers: new HttpHeaders(jsonbin.headers)
+    });
   }
 
 }

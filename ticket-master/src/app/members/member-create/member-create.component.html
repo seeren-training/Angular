@@ -1,11 +1,7 @@
+<mat-progress-bar *ngIf="memberForm.valid" mode="indeterminate"></mat-progress-bar>
+
 <section fxLayout="row wrap" fxFlex="90" fxFlexOffset="5" fxFlex.gt-md="70" fxFlexOffset.gt-sm="15">
-    <span class="mat-display-2" fxFlex="100">
-        <br />
-        New Member
-    </span>
-
-
-
+    <span class="mat-display-2" fxFlex="100"><br />New Member</span>
     <form (ngSubmit)="create()" [formGroup]="memberForm" fxLayout="row wrap" fxFlex="100" fxFlex.gt-sm="50">
         <mat-form-field fxFlex="100">
             <mat-label>FirstName</mat-label>
@@ -30,20 +26,16 @@
         <mat-form-field fxFlex="100">
             <mat-label>Role</mat-label>
             <mat-select formControlName="role">
-                <mat-option *ngFor="let role of [
-              'tester',
-              'front',
-              'back'
-              ]" [value]="role"> {{role}} </mat-option>
+                <mat-option *ngFor="let role of ['Tester', 'Front', 'Back']" [value]="role">
+                    {{role}}
+                </mat-option>
             </mat-select>
-            <mat-error *ngIf="memberForm.controls.lastName.hasError('required')">
+            <mat-error *ngIf="memberForm.controls.role.hasError('required')">
                 Role is required
             </mat-error>
         </mat-form-field>
-        <button class="bottom right" mat-fab color="accent">
+        <button [disabled]="memberForm.valid" class="bottom right" mat-fab color="accent">
             <mat-icon>add</mat-icon>
         </button>
     </form>
-
-
 </section>

@@ -13,6 +13,7 @@ import { Member } from 'src/app/shared/models/member.model';
 export class MemberComponent implements OnInit {
 
   public member: Member;
+  public memberListLength: number;
 
   constructor(
     private router: Router,
@@ -20,7 +21,8 @@ export class MemberComponent implements OnInit {
     private memberListService: MemberListService) { }
 
   public ngOnInit(): void {
-    if (!(this.member = this.memberListService.getById(
+    this.memberListLength = this.memberListService.memberList.length;
+    if (!(this.member = this.memberListService.find(
       +this.route.snapshot.paramMap.get("id")
     ))) {
       this.router.navigate(["/members"]);
@@ -28,8 +30,12 @@ export class MemberComponent implements OnInit {
   }
 
   public onDelete(): void {
-    this.memberListService.delete(this.member);
-    this.router.navigate(["/members"]);
+    const member: Member = this.member;
+    this.member = null;
+    this.memberListService.delete(member).subscribe(
+      () => this.router.navigate(["/members"]),
+      (error) => console.error(error),
+    );
   }
 
 }
