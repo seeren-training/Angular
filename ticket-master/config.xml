@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.ticketmaster.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>TicketMasterApp</name>
+    <description>
+        Magic Deck App
+    </description>
+    <author email="consultant@seeren.fr" href="https://github.com/POEC-20-05/JVS-IN">
+        Cyril
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <platform name="android">
+    </platform>
+    <platform name="ios">
+    </platform>
+</widget>
