@@ -1,6 +1,7 @@
 # Communication
 
 *  🔖 **Input**
+*  🔖 **Hooks**
 *  🔖 **Output**
 *  🔖 **Service**
 
@@ -51,6 +52,12 @@ export class ChildComponent implements OnChanges {
 
 }
 ```
+
+___
+
+### 🏷️ [Hooks](https://angular.io/guide/lifecycle-hooks)
+
+Observons les différents hooks disponibles dans le framework sur la documentation et concluons sur le fait que l'initialisation de valeur est préférable dans le onInit plûtot que dans le constructeur.
 
 ___
 

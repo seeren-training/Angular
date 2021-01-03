@@ -19,6 +19,7 @@ ___
 * [Communication](https://github.com/seeren-training/Angular/wiki/05)
 * [Formulaires](https://github.com/seeren-training/Angular/wiki/06)
 * [HTTP](https://github.com/seeren-training/Angular/wiki/07)
+* [Guard](https://github.com/seeren-training/Angular/wiki/08)
 
 ___
 

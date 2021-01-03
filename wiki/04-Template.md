@@ -193,6 +193,34 @@ Utilisez des pipes pour transformer des chaînes, des montants en devises, des d
 
 Il existe assez peu de pipes et il est évidement possible d'en créer.
 
+### 🏷️ **[Create](https://angular.io/guide/pipes#creating-pipes-for-custom-data-transformations)**
+
+
+```bash
+ng generate pipe shared/pipes/unspace
+```
+
+```ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'unspace'
+})
+export class UnspacePipe implements PipeTransform {
+
+  transform(value: string, ...args: string[]): string {
+    return value.split(' ').join('');
+  }
+
+}
+```
+
+*Utilisation*
+
+```html
+{{ filename | unspace }} 
+```
+
 ___
 
 👨🏻‍💻 Manipulation
