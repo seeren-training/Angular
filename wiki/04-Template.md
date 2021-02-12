@@ -8,21 +8,19 @@
 
 La syntaxe des template nous permet d'atteindre nos objectifs fonctionnels. Dans un template, les attributs et méthodes du composant sont disponibles.
 
-![image](https://raw.githubusercontent.com/seeren-training/Angular/master/wiki/resources/template.jpg)
-
 ___
 
 ## 📑 [Interpolation](https://angular.io/guide/interpolation)
 
 L'interpolation fait référence à l'incorporation d'expressions dans du texte balisé. Par défaut, l'interpolation utilise comme délimiteur les doubles accolades.
 
-*component*
+* component
 
 ```ts
 public title = 'project-name';
 ```
 
-*template*
+* template
 
 ```ts
 {{title}}
@@ -42,25 +40,25 @@ La liaison de données est un mécanisme permettant de coordonner ce que les uti
 
 La liaison de propriété fait circuler une valeur dans une direction, de la propriété d'un composant vers une propriété d'élément cible.
 
-```bash
+```html
 <a [title]="title" href="/">Home</a>
 ```
 #### [Attributs, style and class](https://angular.io/guide/attribute-binding)
 
 Les attributs sans valeur seront présents s'ils sont acceptés sémantiquement et si la valeur associée renvoie une valeur assimilable à true.
 
-```bash
+```html
 <button [disabled]="true">Home</button>
 ```
 
 Il est possble d'affecter à une propriété d'un attribut une valeur.
 
-```bash
+```html
 <button [style.color]="'red'">Home</button>
 ```
  Il est possible d'ajouter un élément à une collection en utilisant les booleans.
 
-```bash
+```html
 <button [class.foo]="true">Home</button>
 ```
 
@@ -68,13 +66,13 @@ Il est possble d'affecter à une propriété d'un attribut une valeur.
 
 Le template possède les méthodes du composant, le binding évènementiel propose de relier un attribut évènementiel de l'élément à une méthode du composant.
 
-*template*
+* template
 
 ```html
 <button (click)="onSave()">Save</button>
 ```
 
-*composant*
+* composant
 
 ```ts
 onSave() { }
@@ -84,13 +82,13 @@ onSave() { }
 
 Pour récupérer l'évènement émit il faut utiliser la variable `$event`, le nommage de cette variable n'est pas libre.
 
-*template*
+* template
 
 ```html
 <button (click)="onSave($event)">Save</button>
 ```
 
-*composant*
+* composant
 
 ```ts
 onSave(event: MouseEvent) { }
@@ -113,7 +111,7 @@ ___
 
 Les directives structurelles sont responsables de la mise en page HTML. Ils façonnent ou remodèlent la structure du DOM, généralement en ajoutant, supprimant et manipulant les éléments hôtes auxquels ils sont attachés.
 
-### 🏷️ **[*ngIf](https://angular.io/guide/built-in-directives#ngif)**
+### 🏷️ **[ngIf](https://angular.io/guide/built-in-directives#ngif)**
 
 Vous pouvez ajouter ou supprimer un élément du DOM en appliquant une directive NgIf à un élément hôte.
 
@@ -147,7 +145,7 @@ Les templates peuvent être stockés dans des `ng-template`. Pratique pour condi
 </ng-template>
 ```
 
-### 🏷️ **[*ngFor](https://angular.io/guide/built-in-directives#ngfor)**
+### 🏷️ **[ngFor](https://angular.io/guide/built-in-directives#ngfor)**
 
 NgFor est une directive répéteur - un moyen de présenter une liste d'éléments. Vous définissez un bloc de HTML qui définit la façon dont un élément unique doit être affiché, puis vous indiquez à Angular d'utiliser ce bloc comme modèle pour le rendu de chaque élément de la liste.
 
@@ -195,7 +193,6 @@ Il existe assez peu de pipes et il est évidement possible d'en créer.
 
 ### 🏷️ **[Create](https://angular.io/guide/pipes#creating-pipes-for-custom-data-transformations)**
 
-
 ```bash
 ng generate pipe shared/pipes/unspace
 ```
@@ -215,7 +212,7 @@ export class UnspacePipe implements PipeTransform {
 }
 ```
 
-*Utilisation*
+* Utilisation
 
 ```html
 {{ filename | unspace }} 
@@ -226,5 +223,3 @@ ___
 👨🏻‍💻 Manipulation
 
 Utiliser la syntaxe des templates pour formater votre donnée, et permettre sa modification avec les interactions utilisateur.
-
-___

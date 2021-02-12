@@ -22,19 +22,20 @@ Les prérequis sont l'import des deux modules suivants:
 Le service se déclare dans le constructeur comme tous les injectables.
 
 ```ts
-  constructor(private fb: FormBuilder) {}
+constructor(private fb: FormBuilder) {}
 ```
 
 #### [FormGroup](https://angular.io/api/forms/FormGroup)
 
-La méthode group renvoie une instance de `FormGroup` qui représente notre formulaire. Un FormGroup possède une collection de [FormControl](https://angular.io/api/forms/FormControl)
+La méthode group renvoie une instance de `FormGroup` qui représente notre formulaire. Un FormGroup possède une collection de FormControl.
+
+[FormControl](https://angular.io/api/forms/FormControl)
 
 ```ts
 this.myForm = fb.group({
   firstName: ['John', Validators.required]
 });
 ```
-
 
 #### [Validators](https://angular.io/api/forms/Validators)
 
@@ -43,7 +44,6 @@ Sur cette construction du FormControl, le premier élément du tableau est la va
 ___
 
 ## 📑 Display and events
-
 
 ### 🏷️ **[Display](https://material.angular.io/components/input/overview)**
 
@@ -146,5 +146,3 @@ ___
 👨🏻‍💻 Manipulation
 
 Utiliser la création et validation de formulaire pour créer une instance d'un modèle à partager entre composants.
-
-___

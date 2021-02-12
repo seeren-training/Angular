@@ -11,17 +11,15 @@ ___
 
 ## 📑 [Input](https://angular.io/guide/component-interaction#pass-data-from-parent-to-child-with-input-binding)
 
-![image](https://raw.githubusercontent.com/seeren-training/Angular/master/wiki/resources/input-output.jpg)
-
 @Input est utile pour transmettre de l'information d'un composant parent à un composant enfant.
 
-*parent component*
+* parent component
 
 ```ts
 public title = 'project-name';
 ```
 
-*parent template*
+* parent template
 
 ```ts
 <child-component [title]="title"></child-component>
@@ -29,7 +27,7 @@ public title = 'project-name';
 
 L'idée est de transmettre une valeur à un composant enfant par le template en utilisant le `property binding`. Quand la valeur présente sans le composant parent, celle du composant enfant change également. Par contre quand elle évolue dans le composant enfant, cela n'affecte pas celle du parent.
 
-*child component*
+* child component
 
 ```ts
 @Input() title: string;
@@ -39,7 +37,7 @@ L'idée est de transmettre une valeur à un composant enfant par le template en 
 
 Le hook `ngOnChanges` est invoqué quand une valeur entrante est réaffectée.
 
-*child component*
+* child component
 
 ```ts
 export class ChildComponent implements OnChanges {
@@ -65,7 +63,7 @@ ___
 
 Un output est une donnée sortante qui utilise le concept évènementiel: un composant enfant peut emmètre un évènement dont le type est spécifié en @Output. Un composant parent peut alors être notifié d'un changement en écoutant l'émission de cet évènement.
 
-*child component*
+* child component
 
 ```ts
 export class ChildComponent implements OnChanges {
@@ -77,7 +75,7 @@ export class ChildComponent implements OnChanges {
 }
 ```
 
-*child template*
+* child template
 
 ```html
 <button (click)="onTitle.emit('Hello World')">
@@ -87,7 +85,7 @@ export class ChildComponent implements OnChanges {
 
 Le composant enfant peut emmètre un évènement `onTitle`. Un composant parent peut écouter cet évènement.
 
-*parent template*
+* parent template
 
 ```html
 <child-component [title]="title"
@@ -98,11 +96,9 @@ ___
 
 ## 📑 [Service](https://angular.io/guide/component-interaction#parent-and-children-communicate-via-a-service)
 
-![image](https://raw.githubusercontent.com/seeren-training/Angular/master/wiki/resources/service.jpg)
-
 Les services dont les instances sont maîtrisées partagent de la donnée entre plusieurs composants.
 
-*service*
+* service
 
 ```ts
 export class TitleService {
@@ -120,13 +116,13 @@ export class TitleService {
 }
 ```
 
-*components*
+* components
 
 ```ts
 constructor(public title: TitleService) { }
 ```
 
-*templates*
+* templates
 
 ```
 {{title.get()}}
@@ -140,7 +136,7 @@ Un service utilise le pattern Observer pour pouvoir notifier aux fonctions attac
 
 Subject est un type observable assez particulier car il possède des méthodes qui le rende proche des EventEmmiter. Sa méthode `next` appelle toute les méthodes attachées à son observation.
 
-*service*
+* service
 
 ```ts
 export class TitleService {
@@ -164,7 +160,7 @@ export class TitleService {
 }
 ```
 
-*composant*
+* components
 
 ```ts
 titleService.subject.subscribe((value: string) => {
@@ -176,14 +172,15 @@ A chaque fois que le sujet invoque sa méthode `next`, les fonctions passées à
 
 Le sujet est un observable, mais ce n'est pas une bonne pratique de l'exposer publiquement, il est préférable de fournir un type Observable qui ne peut pas émettre de valeur.
 
-*service*
+* service
 
 ```ts
 private subject: Subject<string> = new Subject<string>();
 
 public observable: Observable<string> = this.subject.asObservable();  
 ```
-*composant*
+
+* components
 
 ```ts
 titleService.observable.subscribe((value: string) => {
@@ -196,5 +193,3 @@ ___
 👨🏻‍💻 Manipulation
 
 Utiliser la communication entre composants pour modifier vos données dans un composant et que les autres prennent en compte ces changements.
-
-___

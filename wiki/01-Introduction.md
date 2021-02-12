@@ -11,7 +11,6 @@ ___
 
 ### 🏷️ **[Angular](https://angular.io/)**
 
-
 Angular est un **framework côté client**, open source, basé sur TypeScript, et co-dirigé par l'équipe du projet « Angular » à Google et par une communauté de particuliers et de sociétés. Angular est une réécriture complète de AngularJS, framework construit par la même équipe.
 
 ![image](https://raw.githubusercontent.com/seeren-training/Angular/master/wiki/resources/angular.png)
@@ -30,7 +29,7 @@ Le cycle des releases est de 6 mois, nous en sommes à la version 10.
 |Version|Status|Released|Active Ends|LTS Ends|
 |---|---|---|---|---|
 |^10.0.0|Active|Jun 24, 2020|Dec 24, 2020|Dec 24, 2021|
-^9.0.0|Active|Feb 06, 2020|Aug 06, 2020|Aug 06, 2021|
+|^9.0.0|Active|Feb 06, 2020|Aug 06, 2020|Aug 06, 2021|
 |^8.0.0|LTS|May 28, 2019|Nov 28, 2019|Nov 28, 2020|
 
 ___
@@ -82,9 +81,9 @@ Angular se base sur le standard des **web components**.
 
 Les composants Web ont pour but de résoudre le problème de réutilisation de code et consistent en 3 technologies qui peuvent être utilisées ensemble pour créer des éléments réutilisables, encapsulés, versatiles et sans risquer une collision avec d'autre morceaux de code. Un web component possède:
 
-* **[Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)**: pour créer et enregistrer de nouveaux éléments HTML et les faire reconnaître par le navigateur.
-* **[HTML Templates](https://developer.mozilla.org/fr/docs/Web/HTML/Element/template)**: squelette pour créer des éléments HTML instanciables.
-* **[Shadow DOM](https://developer.mozilla.org/fr/docs/Web/Web_Components/Using_shadow_DOM)**: permet d'encapsuler le JavaScript et le CSS des éléments.
+* Custom Elements: pour créer et enregistrer de nouveaux éléments HTML et les faire reconnaître par le navigateur.
+* HTML Templates: squelette pour créer des éléments HTML instanciables.
+* Shadow DOM: permet d'encapsuler le JavaScript et le CSS des éléments.
 
 ___
 
@@ -92,8 +91,9 @@ ___
 
 ### 🏷️ **Prérequis**
 
-* [NodeJS](https://nodejs.org/en/download/)
-* [VSCode](https://code.visualstudio.com/)
+[NodeJS](https://nodejs.org/en/download/)
+
+[VSCode](https://code.visualstudio.com/)
 
 ### 🏷️ **[Getting Started](https://angular.io/guide/setup-local)**
 
@@ -113,7 +113,7 @@ npm install @angular/cli
 npx ng new my-project --style scss
 ```
 
-Modifiez le current directory
+* Modifiez le current directory
 
 ```bash
 cd my-project
@@ -139,17 +139,17 @@ ___
 
 ![image](https://raw.githubusercontent.com/seeren-training/Angular/master/wiki/resources/angular-material.png)
 
-##### Install @angular/material
+* Install @angular/material
 
 ```bash
 npx ng add @angular/material
 ```
 
-##### Fix dependencies
+* Fix dependencies
 
 Vous pouvez observer que les icônes et la typographies sont liées à l'index.html avec un ien distant.
 
-*index.html*
+* index.html
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
@@ -158,17 +158,17 @@ Vous pouvez observer que les icônes et la typographies sont liées à l'index.h
 
 Par commodité et pour pouvoir exécuter le projet sans connexion, il est possible de les déclarer comme dépendances et de les lier au projet autrement.
 
-##### Install @angular/material
+* Install @angular/material
 
 ```bash
 npm install roboto-fontface material-design-icons --save
 ```
 
-##### Link dependencies
+* Link dependencies
 
 Enlever les liens distants de l'`index.html` et éditer le fichier `angular.json`.
 
-*angular.json*
+* angular.json
 
 ```json
 "styles": [
@@ -179,7 +179,7 @@ Enlever les liens distants de l'`index.html` et éditer le fichier `angular.json
 
 #### [Flex Layout](https://github.com/angular/flex-layout)
 
-##### Install @angular/flex-layout
+* Install @angular/flex-layout
 
 ```bash
 npm install @angular/flex-layout --save
@@ -190,5 +190,3 @@ ___
 👨🏻‍💻 Manipulation
 
 Installer les deux librairies d'affichages citées.
-
-___

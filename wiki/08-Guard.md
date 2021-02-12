@@ -43,5 +43,3 @@ ___
 👨🏻‍💻 Manipulation
 
 Partez à sur la création d'une API pour compléter la gestion des utilisateurs de votre Front.
-
-___

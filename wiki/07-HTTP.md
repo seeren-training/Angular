@@ -35,7 +35,9 @@ const options = {
 
 ### 🏷️ **Fetch**
 
-Le client possède la méthode [get](https://angular.io/api/common/http/HttpClient#get) pour récupérer de la donnée. Il est possible de typer la valeur renvoyé par l'observable.
+Le client possède la méthode get pour récupérer de la donnée. Il est possible de typer la valeur renvoyé par l'observable.
+
+[HttpClient.get](https://angular.io/api/common/http/HttpClient#get)
 
 ```ts
 this.http.get<MyModel>(url, options).subscribe(
@@ -50,8 +52,7 @@ this.http.get<MyModel>(url, options).subscribe(
 
 ### 🏷️ **Write**
 
-Le client possède les méthodes [post](https://angular.io/api/common/http/HttpClient#post), [put](https://angular.io/api/common/http/HttpClient#put), [delete](https://angular.io/api/common/http/HttpClient#delete) pour modifier la donnée.
-
+Le client possède les méthodes `post`, `put`, `delete` pour modifier la donnée.
 
 ```ts
 this.http.put<MyModel>(url, body, options);
@@ -74,7 +75,7 @@ this.http.get<MyModel>(url, options).subscribe(
 );
 ```
 
-Une souscription attend en argument premier un callback pour le succès et fourni le corps de la réponse. En argument second un callback en cas d'erreur typé à [HttpErrorResponse](https://angular.io/api/common/http/HttpErrorResponse).
+Une souscription attend en argument premier un callback pour le succès et fourni le corps de la réponse. En argument second un callback en cas d'erreur typé à HttpErrorResponse.
 
 ### 🏷️ **[Pipe](https://angular.io/guide/rx-library#operators)**
 
@@ -98,5 +99,3 @@ ___
 👨🏻‍💻 Manipulation
 
 Stockez vos données en ligne avec un service de stockage au format json et utilisez le HTTPClient et les services pour la piloter.
-
-___
