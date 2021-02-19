@@ -1,4 +1,4 @@
-# Angular
+# Angular - Maîtriser le Framework super héroic
 
 ## Durée
 
